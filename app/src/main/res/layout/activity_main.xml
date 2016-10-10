@@ -40,26 +40,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:text="10%"
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tenPercentButton"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/tipPercentageText"
             android:layout_weight="1" />
 
         <Button
-            android:text="15%"
+            android:text="Calculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fifteenPercentButton"
+            android:id="@+id/tipCalculateButton"
             android:layout_weight="1" />
 
-        <Button
-            android:text="20%"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/twentyPercentButton"
-            android:layout_weight="1" />
     </LinearLayout>
 
     <TextView

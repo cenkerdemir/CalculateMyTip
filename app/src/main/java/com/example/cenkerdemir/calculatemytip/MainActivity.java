@@ -14,9 +14,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tipTextView;
     TextView totalTextView;
     EditText billTotalEditText;
-    Button tenPercentButton;
-    Button fifteenPercentButton;
-    Button twentyPercentButton;
+    EditText tipPercentageText;
+    Button tipCalculateButton;
 
     double tipPercentage;
     double tipAmount;
@@ -30,30 +29,13 @@ public class MainActivity extends AppCompatActivity {
         tipTextView = (TextView) findViewById(R.id.tipTextView);
         totalTextView = (TextView) findViewById(R.id.totalTextView);
         billTotalEditText = (EditText) findViewById(R.id.billTotalEditText);
-        tenPercentButton = (Button) findViewById(R.id.tenPercentButton);
-        fifteenPercentButton = (Button) findViewById(R.id.fifteenPercentButton);
-        twentyPercentButton = (Button) findViewById(R.id.twentyPercentButton);
+        tipPercentageText = (EditText) findViewById(R.id.tipPercentageText);
+        tipCalculateButton = (Button) findViewById(R.id.tipCalculateButton);
 
-        tenPercentButton.setOnClickListener(new View.OnClickListener() {
+        tipCalculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tipPercentage = 0.1;
-                ProcessTipAndTotal();
-            }
-        });
-
-        fifteenPercentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tipPercentage = 0.15;
-                ProcessTipAndTotal();
-            }
-        });
-
-        twentyPercentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tipPercentage = 0.2;
+                tipPercentage = Double.valueOf(tipPercentageText.getText().toString()) / 100.0;
                 ProcessTipAndTotal();
             }
         });
@@ -74,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void UpdateTextViews() {
-        tipTextView.setText("Tip - " + String.valueOf(tipAmount));
-        totalTextView.setText("Total - " + String.valueOf(billGrandTotal));
+        tipTextView.setText("Tip - $" + String.format("%.2f", tipAmount));
+        totalTextView.setText("Total - $" + String.format("%.2f", billGrandTotal));
     }
 }
