@@ -38,9 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tipPercentage = 0.1;
-                CalculateTip();
-                CalculateGrandTotal();
-                UpdateTextViews();
+                ProcessTipAndTotal();
             }
         });
 
@@ -48,9 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tipPercentage = 0.15;
-                CalculateTip();
-                CalculateGrandTotal();
-                UpdateTextViews();
+                ProcessTipAndTotal();
             }
         });
 
@@ -58,11 +54,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tipPercentage = 0.2;
-                CalculateTip();
-                CalculateGrandTotal();
-                UpdateTextViews();
+                ProcessTipAndTotal();
             }
         });
+    }
+
+    private void ProcessTipAndTotal(){
+        CalculateTip();
+        CalculateGrandTotal();
+        UpdateTextViews();
     }
 
     private void CalculateTip() {
