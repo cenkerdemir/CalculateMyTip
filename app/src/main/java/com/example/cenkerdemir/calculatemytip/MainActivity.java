@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     Button twentyPercentButton;
 
     double tipPercentage;
+    double tipAmount;
+    double billGrandTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tipPercentage = 0.1;
+                CalculateTip();
+                CalculateGrandTotal();
+                UpdateTextViews();
             }
         });
 
@@ -43,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tipPercentage = 0.15;
+                CalculateTip();
+                CalculateGrandTotal();
+                UpdateTextViews();
             }
         });
 
@@ -50,11 +58,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tipPercentage = 0.2;
+                CalculateTip();
+                CalculateGrandTotal();
+                UpdateTextViews();
             }
         });
     }
 
-    public void CalculateTip() {
-        
+    private void CalculateTip() {
+        tipAmount = Double.valueOf(billTotalEditText.getText().toString()) * tipPercentage;
+    }
+
+    private void CalculateGrandTotal() {
+        billGrandTotal = Double.valueOf(billTotalEditText.getText().toString()) + tipAmount;
+    }
+
+    private void UpdateTextViews() {
+        tipTextView.setText("Tip - " + String.valueOf(tipAmount));
+        totalTextView.setText("Total - " + String.valueOf(billGrandTotal));
     }
 }
